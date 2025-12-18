@@ -9,6 +9,11 @@ public class AppException extends RuntimeException {
         this.getErrorCode = getErrorCode;
     }
 
+    public AppException(ErrorCode getErrorCode, String message) {
+        super(message);
+        this.getErrorCode = getErrorCode;
+    }
+
     public ErrorCode getErrorCode() {
         return getErrorCode;
     }
