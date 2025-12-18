@@ -27,7 +27,12 @@ public class GlobalExceptionHandler {
 
 		return ResponseEntity
 			.status(errorCode.getStatus())
-			.body(ApiResponse.error(errorCode));
+			.body(ApiResponse.<Void>builder()
+				.status("FAIL")
+				.code(errorCode.getCode())
+				.message(appException.getMessage())
+				.errors(Collections.emptyList())
+				.build());
 	}
 
 	/**
